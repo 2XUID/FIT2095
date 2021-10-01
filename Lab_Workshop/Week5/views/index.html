@@ -1,0 +1,32 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        body {
+            background-image: url('img/back.png');
+        }
+    </style>
+</head>
+
+<body>
+    <h1> Book management</h1> </br>
+    <h2> Insert book</h2> </br>
+    <h1>
+        <a href="/">Insert Books</a>
+        <a href="/getbook">List Books</a>
+        <a href="/updatebook">Update Books</a>
+        <a href="/deletebook">Delete Books</a>
+        <a href="/getbetweendate">show 27/08/2020-27/08/2021 book</a>
+    </h1>
+    <form action="/addnewbook" method="POST">
+        Title <input type="text" name="title" /> </br>
+        Author <input type="text" name="author" /> </br>
+        Topic <input type="text" name="topic" /> </br>
+        Date of publication <input type="date" name="date" /> </br>
+        Summary <input type="text" name="summary" /> </br>
+        <input type="submit" value="Submit" /> </br>
+    </form>
+</body>
+
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>List of Patients</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <div class="jumbotron text-center">
+    <img src="logo.jpg" alt="bookstore-logo">
+    <!-- http://www.thelogomix.com/logo-design-gallery/bookstore-logo-13082034.html -->
+    <h1><b>FIT2095 CLINIC</b></h1>
+    <p>Welcome to Week 6 Lab</p>
+  </div>
+
+  <div id="links">
+    <a href="/"><button type="button" class="btn btn-primary">Home</button></a>
+    <a href="/add-doctor"><button type="button" class="btn btn-primary">Add Doctor</button></a>
+    <a href="/add-patient"><button type="button" class="btn btn-primary">Add Patient</button></a>
+    <a href="/list-doctors"><button type="button" class="btn btn-primary">List Doctors</button></a>
+    <a href="/list-patients"><button type="button" class="btn btn-primary">List Patients</button></a>
+    <a href="/delete-patient"><button type="button" class="btn btn-primary">Delete Patient</button></a>
+    <a href="/update-doctor"><button type="button" class="btn btn-primary">Update Doctor</button></a>
+    <a href="/find-doctors"><button type="button" class="btn btn-primary">Find Doctors</button></a>
+  </div>
+
+  <div class="container">
+    <h2><b>List of Patients</b></h2>
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>Full Name</th>
+          <th>Age</th>
+          <th>Date of Visit</th>
+          <th>Doctor's First Name</th>
+          <th>Doctor's Last Name</th>
+          <th>Case Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% for(let i = 0; i < patients.length; i++) { %>
+        <tr>
+          <td><%=patients[i].fullName%></td>
+          <td><%=patients[i].age%></td>
+          <td><%=moment(patients[i].visitDate).format("DD/MM/YYYY")%></td>
+          <td><%=patients[i].doctor.fullName.firstName%></td>
+          <td><%=patients[i].doctor.fullName.lastName%></td>
+          <td><%=patients[i].caseDesc%></td>
+        </tr>
+        <% } %>
+      </tbody>
+    </table>
+  </div>
+
+</body>
+
+</html>

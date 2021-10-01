@@ -1,0 +1,245 @@
+<div class="container-lg py-4">
+  <div class="jumbotron text-center py-4">
+    <h1>Movies DB System</h1>
+  </div>
+  <!-- The navigation bar -->
+  <nav class="navbar navbar-expand-sm bg-light mb-4 rounded">
+    <ul class="navbar-nav">
+      <li class="nav-item mx-2">
+        <a class="btn btn-primary" (click)="changeSection(1)">Home</a>
+      </li>
+      <li class="nav-item mx-2">
+        <a class="btn btn-primary" (click)="changeSection(2)">Add Movie</a>
+      </li>
+      <li class="nav-item mx-2">
+        <a class="btn btn-primary" (click)="changeSection(3)">Update Movie</a>
+      </li>
+      <li class="nav-item mx-2">
+        <a class="btn btn-primary" (click)="changeSection(4)">Delete Movie</a>
+      </li>
+      <li class="nav-item mx-2">
+        <a class="btn btn-primary" (click)="changeSection(5)">Delete Movie(Title)</a>
+      </li>
+      <li class="nav-item mx-2">
+        <a class="btn btn-primary" (click)="changeSection(6)">Delete Movie(Years)</a>
+      </li>
+      <li class="nav-item mx-2">
+        <a class="btn btn-primary" (click)="changeSection(7)" (click)="onGetActors()" >Add Actor To Movie</a>
+      </li>
+    </ul>
+  </nav>
+  <!-- Show table -->
+  <div class="section px-5" *ngIf="section == 1">
+    <table class="table table-striped mt-4">
+      <thead class="table-dark ">
+        <tr>
+          <th>Title</th>
+          <th>Year</th>
+          <th>Actor</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of movieData">
+          <td>{{ item.title }}</td>
+          <td>{{ item.year }}</td>
+          <td>
+            {{ onGetActorInMovie(item.actors) }}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Add movie -->
+  <div class="section px-5" *ngIf="section == 2">
+    <div class="form-group py-2">
+      <label for="movieTitle">Title</label>
+      <input type="text" class="form-control" id="movieTitle" [(ngModel)]="title" />
+    </div>
+    <div class="form-group py-2">
+      <label for="movieYear">Year</label>
+      <input type="number" class="form-control" id="movieYear" [(ngModel)]="year" />
+    </div>
+    <button type="submit" class="btn btn-primary mt-4" (click)="onCreateMovie()">
+      Save Movie
+    </button>
+  </div>
+
+  <!-- Update movie -->
+  <div class="section px-5" *ngIf="section == 3">
+    <table class="table table-striped mt-4">
+      <thead class="table-dark">
+        <tr>
+          <th>Title</th>
+          <th>Year</th>
+          <th>Select?</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of movieData">
+          <td>{{ item.title }}</td>
+          <td>{{ item.year }}</td>
+          <td>
+            <button type="submit" class="btn btn-sm btn-primary" (click)="onSelectMovie(item)">
+              Update
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <hr />
+    <div *ngIf="movieData.length > 0">
+      <div class="form-group py-2">
+        <label for="title">Title</label>
+        <input type="text" class="form-control" id="title" [(ngModel)]="title" />
+      </div>
+      <div class="form-group py-2">
+        <label for="year">Year</label>
+        <input type="number" class="form-control" id="year" [(ngModel)]="year" />
+      </div>
+      <button type="submit" class="btn btn-primary mt-2" (click)="onUpdateMovie()">
+        Update Movie
+      </button>
+    </div>
+  </div>
+
+  <!-- Delete movie -->
+  <div class="section px-5" *ngIf="section == 4">
+    <table class="table table-striped mt-4">
+      <thead class="table-dark">
+        <tr>
+          <th>Title</th>
+          <th>Year</th>
+          <th>Delete?</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of movieData">
+          <td>{{ item.title }}</td>
+          <td>{{ item.year }}</td>
+          <td>
+            <button type="submit" class="btn btn-primary" (click)="onDeleteMovie(item)">
+              Delete
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Delete movie by title -->
+  <div class="section px-5" *ngIf="section == 5">
+    <table class="table table-striped mt-4">
+      <thead class="table-dark">
+        <tr>
+          <th>Title</th>
+          <th>Year</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of movieData">
+          <td>{{ item.title }}</td>
+          <td>{{ item.year }}</td>
+        </tr>
+      </tbody>
+    </table>
+    <hr />
+    <div class="form-group py-2">
+      <label for="title">Movie Title</label>
+      <input type="text" class="form-control" id="title" [(ngModel)]="title" />
+    </div>
+    <button type="submit" class="btn btn-primary mt-4" (click)="onDeleteMovieTitle()">
+      Delete Movies
+    </button>
+  </div>
+  <!-- Delete movie by year -->
+  <div class="section px-5" *ngIf="section == 6">
+    <table class="table table-striped mt-4">
+      <thead class="table-dark">
+        <tr>
+          <th>Title</th>
+          <th>Year</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of movieData">
+          <td>{{ item.title }}</td>
+          <td>{{ item.year }}</td>
+        </tr>
+      </tbody>
+    </table>
+    <hr />
+    <div class="form-group py-2">
+      <label for="year1">From Year</label>
+      <input type="number" class="form-control" id="year1" [(ngModel)]="year1" />
+    </div>
+    <div class="form-group py-2">
+      <label for="year2">To Year</label>
+      <input type="number" class="form-control" id="year2" [(ngModel)]="year2" />
+    </div>
+    <button type="submit" class="btn btn-primary mt-4" (click)="onDeleteMovieYear()">
+      Delete Movies
+    </button>
+  </div>
+  <!-- Add Actor to the Movie -->
+  <div class="section px-5" *ngIf="section == 7">
+  <!--Movie -->
+    <table class="table table-striped mt-4">
+      <thead class="table-dark">
+        <tr>
+          <th>Movie Title</th>
+          <th>Year</th>
+          <th>Actor</th>
+          <th>To</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of movieData">
+          <td>{{ item.title }}</td>
+          <td>{{ item.year }}</td>
+          <td>
+            {{ onGetActorInMovie(item.actors) }}
+          </td>
+          <td>
+            <button type="submit" class="btn btn-primary" (click)="onSelectMovie(item)">
+              Select
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <br />
+    <!--Actor -->
+    <table class="table table-striped mt-4">
+      <thead class="table-dark">
+        <tr>
+          <th>Name</th>
+          <th>Birth Year</th>
+          <th>Add</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of actorData">
+          <td>{{ item.name }}</td>
+          <td>{{ item.bYear }}</td>
+          <td>
+            <button type="submit" class="btn btn-primary" (click)="onSelectActor(item)">
+              Select
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="form-group py-2">
+      <label for="title">Movie</label>
+      <input type="text" class="form-control" id="title" [(ngModel)]="title" />
+    </div>
+    <div class="form-group py-2">
+      <label for="name">Actor</label>
+      <input type="text" class="form-control" id="name" [(ngModel)]="name"/>
+    </div>
+    <button type="submit" class="btn btn-primary" (click)="onAddActorToMovie()">
+      Add
+    </button>
+  </div>
+</div>

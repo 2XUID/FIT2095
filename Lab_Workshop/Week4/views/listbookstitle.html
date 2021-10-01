@@ -1,0 +1,24 @@
+<html>
+
+<head>
+    <img src="cover9.jpg" width="400" height="100" />
+    <link rel="stylesheet" href="tablestyle.css">
+</head>
+
+<body>
+    <table id="t01">
+        <tr>
+            <th>Title Only</th>
+        </tr>
+        <% for(let i=0;i<books.length;i++){ %>
+        <tr>
+            <td><%= books[i].title %></td>
+        </tr>
+        <%} %>
+    </table>
+</body>
+
+
+<a href="/"> Home</a>
+
+</html>

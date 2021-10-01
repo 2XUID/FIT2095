@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>List of Doctors</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <div class="jumbotron text-center">
+    <img src="logo.jpg" alt="bookstore-logo">
+    <!-- http://www.thelogomix.com/logo-design-gallery/bookstore-logo-13082034.html -->
+    <h1><b>FIT2095 CLINIC</b></h1>
+    <p>Welcome to Week 6 Lab</p>
+  </div>
+
+  <div id="links">
+    <a href="/"><button type="button" class="btn btn-primary">Home</button></a>
+    <a href="/add-doctor"><button type="button" class="btn btn-primary">Add Doctor</button></a>
+    <a href="/add-patient"><button type="button" class="btn btn-primary">Add Patient</button></a>
+    <a href="/list-doctors"><button type="button" class="btn btn-primary">List Doctors</button></a>
+    <a href="/list-patients"><button type="button" class="btn btn-primary">List Patients</button></a>
+    <a href="/delete-patient"><button type="button" class="btn btn-primary">Delete Patient</button></a>
+    <a href="/update-doctor"><button type="button" class="btn btn-primary">Update Doctor</button></a>
+    <a href="/find-doctors"><button type="button" class="btn btn-primary">Find Doctors</button></a>
+  </div>
+
+  <div class="container">
+    <h2><b>List of Doctors</b></h2>
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Date of Birth</th>
+          <th>State</th>
+          <th>Suburb</th>
+          <th>Street</th>
+          <th>Unit</th>
+          <th>No. of Patients</th>
+          <th>ID</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% for(let i = 0; i < doctors.length; i++) { %>
+        <tr>
+          <td><%=doctors[i].fullName.firstName%></td>
+          <td><%=doctors[i].fullName.lastName%></td>
+          <td><%=moment(doctors[i].dob).format("DD/MM/YYYY")%></td>
+          <td><%=doctors[i].address.state%></td>
+          <td><%=doctors[i].address.suburb%></td>
+          <td><%=doctors[i].address.street%></td>
+          <td><%=doctors[i].address.unit%></td>
+          <td><%=doctors[i].numPatients%></td>
+          <td><%=doctors[i]._id%></td>
+        </tr>
+        <% } %>
+      </tbody>
+    </table>
+  </div>
+
+</body>
+
+</html>

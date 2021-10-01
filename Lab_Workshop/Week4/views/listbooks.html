@@ -1,0 +1,51 @@
+<html>
+
+<head>
+    <img src="cover9.jpg" width="400" height="100" />
+    <link rel="stylesheet" href="tablestyle.css">
+    <style>
+        /* unvisited link */
+        a:link {
+            color: red;
+        }
+
+        /* visited link */
+        a:visited {
+            color: green;
+        }
+
+        /* mouse over link */
+        a:hover {
+            color: hotpink;
+        }
+
+        /* selected link */
+        a:active {
+            color: blue;
+        }
+    </style>
+</head>
+
+<body>
+    <table id="t01">
+        <tr>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Topic</th>
+            <th>Cost</th>
+        </tr>
+        <% for(let i=0;i<books.length;i++){ %>
+        <tr>
+            <td><%= books[i].title %></td>
+            <td><%= books[i].author %></td>
+            <td><%= books[i].topic %></td>
+            <td><%= books[i].cost %></td>
+        </tr>
+        <%} %>
+    </table>
+</body>
+
+
+<a href="/"> Home</a>
+
+</html>

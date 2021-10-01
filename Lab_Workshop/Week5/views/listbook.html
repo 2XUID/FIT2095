@@ -1,0 +1,43 @@
+<html>
+
+
+
+<head>
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        body {
+            background-image: url('img/back.png');
+        }
+    </style>
+</head>
+
+
+<body>
+    <h1>List Users</h1> </br>
+    <h1>
+        <a href="/">Insert Books</a>
+        <a href="/getbook">List Books</a>
+        <a href="/updatebook">Update Books</a>
+        <a href="/deletebook">Delete Books</a>
+        <a href="/getbetweendate">show 27/08/2020-27/08/2021 book</a>
+    </h1>
+    <table id="t01">
+        <tr>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Topic</th>
+            <th>Date of publication</td>
+            <th>Summary</th>
+        </tr>
+        <% for (let i=0;i<bookdb.length;i++){ %>
+        <tr>
+            <td><%= bookdb[i].title %> </td>
+            <td> <%= bookdb[i].author %> </td>
+            <td><%= bookdb[i].topic %></td>
+            <td><%= bookdb[i].date %></td>
+            <td><%= bookdb[i].summary %></td>
+        </tr>
+        <%}%>
+    </table>
+</body>
+</html>

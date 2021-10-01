@@ -1,0 +1,108 @@
+<div class="container-lg py-4">
+
+  <!-- form start -->
+  <div class="form px-4 ">
+    <!-- firstName part -->
+    <div class="col-md-4 py-2">
+      <label for="firstName" class="form-label">First Name</label>
+      <input type="text" class="form-control" id="firstName" [(ngModel)]="firstName" />
+    </div>
+    <!-- lastName part -->
+    <div class="col-md-4 py-2">
+      <label for="lastName" class="form-label">Last Name</label>
+      <input type="text" class="form-control" id="lastName" [(ngModel)]="lastName" />
+    </div>
+    <!-- date of birth part -->
+    <div class="col-md-4 py-2">
+      <label for="dob" class="form-label">Date Of Birth</label>
+      <input type="date" class="form-control" id="dob" [(ngModel)]="dateOfBirth" />
+    </div>
+    <!-- address part -->
+    <div class="form-row px-1 ">
+      <!-- suburb part -->
+      <div class="col-md-2 py-2 px-3">
+        <label for="suburb" class="form-label">Suburb</label>
+        <input type="text" class="form-control" id="suburb" [(ngModel)]="suburb" />
+      </div>
+      <!-- state part -->
+      <div class="col-auto-2 py-2 px-3">
+        <label class="mr-sm-2" for="state">State</label><br>
+        <select class="form-select" id="state" [(ngModel)]="state">
+          <option selected>Choose...</option>
+          <option>ACT</option>
+          <option>NSW</option>
+          <option>NT</option>
+          <option>QLD</option>
+          <option>SA</option>
+          <option>TAS</option>
+          <option>WA</option>
+          <option>VIC</option>
+        </select>
+      </div>
+      <!-- postCode part -->
+      <div class="col-md-2 py-2 px-3">
+        <label for="postCode" class="form-label">Postcode</label>
+        <input type="number" class="form-control" id="postCode" [(ngModel)]="postCode" />
+      </div>
+    </div>
+    <!-- number of Patients part -->
+    <div class="col-md-2 py-2">
+      <label for="numOfPatient" class="form-label">Number Of Patients</label>
+      <input type="number" class="form-control" id="numOfPatient" [(ngModel)]="numOfPatients" />
+    </div>
+    <!-- button start -->
+    <div class="col-md py-4">
+      <!-- Add doctor -->
+      <button class="btn btn-primary" type="button" (click)="saveDoc()">
+        Add Doctor <span class="badge bg-success">{{ docDb.length }}</span>
+      </button>
+      <!-- Delete doctor -->
+      <button class="btn btn-warning mx-5" type="button" [disabled]="numDocNoPatient === 0"
+        (click)="deleteDocByPatient()">
+        Delete Docs with Patients
+        <span class="badge bg-danger">{{ numDocNoPatient }}</span>
+      </button>
+    </div>
+    <!-- button end -->
+  </div>
+  <!-- form end -->
+
+  <!-- table start -->
+  <table class="table table-striped mt-4">
+    <thead class="table-dark">
+      <tr>
+        <th>#</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Date Of Birth</th>
+        <th>Address</th>
+        <th>Number Of Patients</th>
+        <th>Delete?</th>
+        <th>Add Patients</th>
+      </tr>
+    </thead>
+    <tbody>
+      <ng-container *ngFor="let doctor of docDb; let i = index">
+        <tr *ngIf="docDb.length > 0">
+          <td>{{ i + 1 }}</td>
+          <td>{{ doctor.firstName }}</td>
+          <td>{{ doctor.lastName }}</td>
+          <td>{{ doctor.dateOfBirth }}</td>
+          <td>{{ doctor.address }}</td>
+          <td>{{ doctor.numOfPatients }}</td>
+          <td>
+            <button class="btn btn-sm btn-danger" (click)="deleteDocById(doctor.id)">
+              &#10005;
+            </button>
+          </td>
+          <td>
+            <button class="btn btn-sm btn-primary" (click)="addPatients(doctor.id)">
+              +Patients
+            </button>
+          </td>
+        </tr>
+      </ng-container>
+    </tbody>
+  </table>
+  <!-- table end -->
+</div>
