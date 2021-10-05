@@ -1,0 +1,14 @@
+<div class="section px-5">
+  <table class="table table-striped mt-4">
+    <tr>
+      <th>Name</th>
+      <th>Birth Year</th>
+      <th>Delete?</th>
+    </tr>
+    <tr *ngFor="let item of actorsDB">
+      <td>{{item.name}}</td>
+      <td>{{item.bYear}}</td>
+      <td><button type="submit" class="btn btn-primary" (click)="onDeleteActor(item)">Delete</button></td>
+    </tr>
+  </table>
+</div>
