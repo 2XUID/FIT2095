@@ -5,13 +5,17 @@ import { DatabaseService } from "./database.service";
 import { HttpClientModule } from "@angular/common/http";
 import { FormsModule, ReactiveFormsModule  } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
-import { ListactorsComponent } from "./listactors/listactors.component";
-import { AddactorComponent } from "./addactor/addactor.component";
-import { DeleteactorComponent } from "./deleteactor/deleteactor.component";
-import { UpdateactorComponent } from "./updateactor/updateactor.component";
+import { ListactorsComponent } from "./actor/listactors/listactors.component";
+import { AddactorComponent } from "./actor/addactor/addactor.component";
+import { DeleteactorComponent } from "./actor/deleteactor/deleteactor.component";
+import { UpdateactorComponent } from "./actor/updateactor/updateactor.component";
 import { W10strsubPipe } from './w10strsub.pipe';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { CreatemovieComponent } from './movie/createmovie/createmovie.component';
+import { ListmoviesComponent } from './movie/listmovies/listmovies.component';
+import { DeletemovieComponent } from './movie/deletemovie/deletemovie.component';
+import { AddactortomovieComponent } from './movie/addactortomovie/addactortomovie.component';
 const appRoutes: Routes = [
   { path: "listactors", component: ListactorsComponent },
   { path: "addactor", component: AddactorComponent },
@@ -27,6 +31,10 @@ const appRoutes: Routes = [
     UpdateactorComponent,
     DeleteactorComponent,
     W10strsubPipe,
+    CreatemovieComponent,
+    ListmoviesComponent,
+    DeletemovieComponent,
+    AddactortomovieComponent,
   ],
   imports: [RouterModule.forRoot(appRoutes),BrowserModule,FormsModule, HttpClientModule, ReactiveFormsModule, ServiceWorkerModule.register('ngsw-worker.js', {
   enabled: environment.production,

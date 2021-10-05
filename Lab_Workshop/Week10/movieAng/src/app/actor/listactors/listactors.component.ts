@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { DatabaseService } from "../database.service";
+import { DatabaseService } from "src/app/database.service";
 @Component({
   selector: "app-listactors",
   templateUrl: "./listactors.component.html",

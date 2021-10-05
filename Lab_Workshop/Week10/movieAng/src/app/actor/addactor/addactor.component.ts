@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { DatabaseService } from "../database.service";
+import { DatabaseService } from "src/app/database.service";
 import { Router } from "@angular/router";
 @Component({
   selector: "app-addactor",
