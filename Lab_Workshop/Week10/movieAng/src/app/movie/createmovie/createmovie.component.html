@@ -1,1 +1,13 @@
-<p>createmovie works!</p>
+  <div class="section px-5">
+    <div class="form-group py-2">
+      <label for="movieTitle">Title</label>
+      <input type="text" class="form-control" id="movieTitle" [(ngModel)]="title" />
+    </div>
+    <div class="form-group py-2">
+      <label for="movieYear">Year</label>
+      <input type="number" class="form-control" id="movieYear" [(ngModel)]="year" />
+    </div>
+    <button type="submit" class="btn btn-primary mt-4" (click)="onCreateMovie()">
+      Save Movie
+    </button>
+  </div>

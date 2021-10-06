@@ -1,1 +1,22 @@
-<p>deletemovie works!</p>
+  <div class="section px-5">
+    <table class="table table-striped mt-4">
+      <thead class="table-dark">
+        <tr>
+          <th>Title</th>
+          <th>Year</th>
+          <th>Delete?</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of movieData">
+          <td>{{ item.title }}</td>
+          <td>{{ item.year }}</td>
+          <td>
+            <button type="submit" class="btn btn-primary" (click)="onDeleteMovie(item)">
+              Delete
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>

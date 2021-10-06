@@ -16,12 +16,19 @@ import { CreatemovieComponent } from './movie/createmovie/createmovie.component'
 import { ListmoviesComponent } from './movie/listmovies/listmovies.component';
 import { DeletemovieComponent } from './movie/deletemovie/deletemovie.component';
 import { AddactortomovieComponent } from './movie/addactortomovie/addactortomovie.component';
+import { InvalidComponent } from './invalid/invalid.component';
 const appRoutes: Routes = [
   { path: "listactors", component: ListactorsComponent },
   { path: "addactor", component: AddactorComponent },
   { path: "updateactor", component: UpdateactorComponent },
   { path: "deleteactor", component: DeleteactorComponent },
+  { path: "createmovie", component: CreatemovieComponent },
+  { path: "listmovies", component: ListmoviesComponent },
+  { path: "deletemovie", component: DeletemovieComponent },
+  { path: "addactortomovie", component: AddactortomovieComponent },
+  { path: "invalid", component: InvalidComponent },
   { path: "", redirectTo: "/listactors", pathMatch: "full" },
+  { path: "**", redirectTo:"/invalid"},
 ];
 @NgModule({
   declarations: [
@@ -35,6 +42,7 @@ const appRoutes: Routes = [
     ListmoviesComponent,
     DeletemovieComponent,
     AddactortomovieComponent,
+    InvalidComponent,
   ],
   imports: [RouterModule.forRoot(appRoutes),BrowserModule,FormsModule, HttpClientModule, ReactiveFormsModule, ServiceWorkerModule.register('ngsw-worker.js', {
   enabled: environment.production,

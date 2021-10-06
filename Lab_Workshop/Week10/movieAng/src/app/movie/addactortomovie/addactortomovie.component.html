@@ -1,1 +1,60 @@
-<p>addactortomovie works!</p>
+  <div class="section px-5" *ngIf="section == 7">
+  <!--Movie -->
+    <table class="table table-striped mt-4">
+      <thead class="table-dark">
+        <tr>
+          <th>Movie Title</th>
+          <th>Year</th>
+          <th>Actor</th>
+          <th>To</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of movieData">
+          <td>{{ item.title }}</td>
+          <td>{{ item.year }}</td>
+          <td>
+            {{ onGetActorInMovie(item.actors) }}
+          </td>
+          <td>
+            <button type="submit" class="btn btn-primary" (click)="onSelectMovie(item)">
+              Select
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <br />
+    <!--Actor -->
+    <table class="table table-striped mt-4">
+      <thead class="table-dark">
+        <tr>
+          <th>Name</th>
+          <th>Birth Year</th>
+          <th>Add</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of actorData">
+          <td>{{ item.name }}</td>
+          <td>{{ item.bYear }}</td>
+          <td>
+            <button type="submit" class="btn btn-primary" (click)="onSelectActor(item)">
+              Select
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="form-group py-2">
+      <label for="title">Movie</label>
+      <input type="text" class="form-control" id="title" [(ngModel)]="title" />
+    </div>
+    <div class="form-group py-2">
+      <label for="name">Actor</label>
+      <input type="text" class="form-control" id="name" [(ngModel)]="name"/>
+    </div>
+    <button type="submit" class="btn btn-primary" (click)="onAddActorToMovie()">
+      Add
+    </button>
+  </div>
