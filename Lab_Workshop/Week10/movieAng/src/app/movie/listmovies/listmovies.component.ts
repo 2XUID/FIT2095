@@ -11,6 +11,9 @@ export class ListmoviesComponent implements OnInit {
   constructor(private dbService: DatabaseService, private router: Router) {}
   movieData: any[] = [];
   ngOnInit(): void {
+    this.onListMovies();
+  }
+  onListMovies() {
     this.dbService.getMovies().subscribe((data: any) => {
       this.movieData = data;
     });
@@ -27,4 +30,5 @@ export class ListmoviesComponent implements OnInit {
     }
     return list;
   }
+
 }

@@ -33,6 +33,11 @@ export class AddactortomovieComponent implements OnInit {
       this.actorData = data;
     });
   }
+  onListMovies() {
+    this.dbService.getMovies().subscribe((data: any) => {
+      this.movieData = data;
+    });
+  }
   onGetActorInMovie(actorsArray: any[]) {
     let list = '';
     if (actorsArray.length > 1) {
@@ -44,11 +49,6 @@ export class AddactortomovieComponent implements OnInit {
       list = actorsArray[0].name;
     }
     return list;
-  }
-  onListMovies() {
-    this.dbService.getMovies().subscribe((data: any) => {
-      this.movieData = data;
-    });
   }
   onSelectMovie(item: any) {
     this.title = item.title;

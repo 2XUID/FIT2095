@@ -6,7 +6,7 @@
     </tr>
     <tr *ngFor="let item of actorsDB">
       <td>{{item.name}}</td>
-      <td>{{item.bYear}}</td>
+      <td>{{item.bYear|w10strsub}}</td>
     </tr>
   </table>
 </div>
