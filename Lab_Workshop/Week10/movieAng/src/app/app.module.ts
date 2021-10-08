@@ -17,6 +17,7 @@ import { ListmoviesComponent } from './movie/listmovies/listmovies.component';
 import { DeletemovieComponent } from './movie/deletemovie/deletemovie.component';
 import { AddactortomovieComponent } from './movie/addactortomovie/addactortomovie.component';
 import { InvalidComponent } from './invalid/invalid.component';
+import { AgeComparePipe } from './age-compare.pipe';
 const appRoutes: Routes = [
   { path: "listactors", component: ListactorsComponent },
   { path: "addactor", component: AddactorComponent },
@@ -43,6 +44,7 @@ const appRoutes: Routes = [
     DeletemovieComponent,
     AddactortomovieComponent,
     InvalidComponent,
+    AgeComparePipe,
   ],
   imports: [RouterModule.forRoot(appRoutes),BrowserModule,FormsModule, HttpClientModule, ReactiveFormsModule, ServiceWorkerModule.register('ngsw-worker.js', {
   enabled: environment.production,

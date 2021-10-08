@@ -4,6 +4,7 @@
         <tr>
           <th>Title</th>
           <th>Year</th>
+          <th>Old or not</th>
           <th>Actor</th>
         </tr>
       </thead>
@@ -11,6 +12,7 @@
         <tr *ngFor="let item of movieData">
           <td>{{ item.title }}</td>
           <td>{{ item.year }}</td>
+          <td>{{item.year|ageCompare}}</td>
           <td>
             {{ onGetActorInMovie(item.actors) }}
           </td>

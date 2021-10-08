@@ -3,10 +3,12 @@
     <tr>
       <th>Name</th>
       <th>Birth Year</th>
+      <th>Old or not</th>
     </tr>
     <tr *ngFor="let item of actorsDB">
       <td>{{item.name}}</td>
       <td>{{item.bYear|w10strsub}}</td>
+      <td>{{item.bYear|ageCompare}}</td>
     </tr>
   </table>
 </div>
