@@ -8,7 +8,7 @@
     <tr *ngFor="let item of actorsDB">
       <td>{{item.name}}</td>
       <td>{{item.bYear|w10strsub}}</td>
-      <td>{{item.bYear|ageCompare}}</td>
+      <td>{{item.bYear|ageCompare:1}}</td>
     </tr>
   </table>
 </div>
