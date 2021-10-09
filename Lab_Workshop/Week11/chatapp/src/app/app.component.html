@@ -1,0 +1,20 @@
+<div id="chatContainer">
+  <div class="chatform">
+    <div class="form-group">
+      <label for="userName">Your Name</label>
+      <input type="text" class="form-control" id="userName" placeholder="Your name" [(ngModel)]="userName">
+    </div>
+    <div class="form-group">
+      <label for="message">Message</label>
+      <input type="text" class="form-control" id="message" placeholder="Your message" [(ngModel)]="messageText">
+    </div>
+    <button (click)="sendMessage()" type="submit" class="btn btn-primary">Send </button>
+  </div>
+  <div class="container" *ngFor="let item of messages.slice().reverse() ">
+    <p>From: {{item.userName}}</p>
+    <div>
+      <h3>{{item.msg}}</h3>
+    </div>
+    <span class="time-right">{{item.timeStamp}}</span>
+  </div>
+</div>
