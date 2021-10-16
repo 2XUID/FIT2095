@@ -23,8 +23,8 @@ export class AppComponent {
     this.listen2Events();
   }
   listen2Events() {
-    this.socket.on("msg", (data: any) => {
-      this.messages.push(data);
+    this.socket.on("initialData", (data: any) => {
+      this.teamsObj = 
     });
   }
   sendMessage() {

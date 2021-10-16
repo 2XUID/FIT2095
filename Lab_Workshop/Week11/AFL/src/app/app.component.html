@@ -1,0 +1,36 @@
+<div class="row d-flex justify-content-center py-3">
+  <div class="col-sm-5 py-3 px-4">
+    <div class="card">
+      <div class="card-body bg-primary text-white">
+        <div class="card-title px-2">
+          {{Object.theText}}
+        </div>
+        <div class="card-body bg-primary text-white">
+          <input type="number" class="form-control" id="ticketNumber" [(ngModel)]="ticketNumber">
+        </div>
+      </div>
+      <ul class="list-group">
+        <li class="list-group-item" *ngFor="let item of Object.teams">
+          &nbsp;&nbsp;&nbsp;<input class="form-check-input px-2" type="radio" [value]="item.value" [(ngModel)]="select">
+          <label class="form-check-lable">
+            {{item.text}}
+          </label>
+        </li>
+      </ul>
+      <div>
+        <button class="btn btn-primary" (click)="purchaseTicket()">Purchase ({{total}})</button>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-6 py-3">
+    <div class="card">
+      <div class="card-body">
+        <div style="display: block;" *ngIf="label.length>0 && data.length>0">
+          <canvas baseChart [data]="data" [labels]="label" [chartType]="pieChartType" [options]="pieChartOptions"
+            [plugins]="pieChartPlugins" [legend]="pieChartLegend">
+          </canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
