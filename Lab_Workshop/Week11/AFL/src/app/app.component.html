@@ -13,12 +13,15 @@
         <li class="list-group-item" *ngFor="let item of Object.teams">
           &nbsp;&nbsp;&nbsp;<input class="form-check-input px-2" type="radio" [value]="item.value" [(ngModel)]="select">
           <label class="form-check-lable">
-            {{item.text}}mp3_src
+            {{item.text}}
           </label>
         </li>
       </ul>
       <div>
         <button class="btn btn-primary" (click)="purchaseTicket()">Purchase ({{total}})</button>
+      </div>
+      <div>
+        <button class="btn btn-primary" (click)="delete()">Delete</button>
       </div>
     </div>
   </div>

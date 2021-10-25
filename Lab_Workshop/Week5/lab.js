@@ -13,14 +13,14 @@ const MongoClient = mongodb.MongoClient;
 const url = "mongodb://localhost:27017/";
 let db;
 
-MongoClient.connect(url, {//The class MongoClient enables you to make successful MongoDB server connections with your code.
+MongoClient.connect(url, {
     useNewUrlParser: true
 }, function (err, client) {
     if (err) {
         console.log("Err  ", err);
     } else {
         console.log("Connected successfully to server");
-        db = client.db("FIT2095_BOOK");//cant get database then add database
+        db = client.db("book");
     }
 });
 
@@ -29,12 +29,12 @@ app.get("/", function (req, res) {
 });
 
 app.post("/addnewbook", function (req, res) {
-    let details = req.body;
-    if (details.title.length < 3 || details.author.length < 3 ||
-        details.topic.length < 3) {
+    if (req.body.title.length < 3 || req.body.author.length < 3 ||
+        req.body.topic.length < 3 || req.body.cost < 0) {
         console.log("Invalid");
         res.render("invaliddata");
     } else {
+        let details = req.body;
         db.collection("book").insertOne({
             title: details.title,
             author: details.author,
@@ -42,7 +42,7 @@ app.post("/addnewbook", function (req, res) {
             date: details.date,
             summary: details.summary,
         });
-        res.redirect("/getbook");
+        res.redirect("/getbook"); // redirect the client to list users page
     }
 });
 
@@ -50,7 +50,7 @@ app.post("/addnewbook", function (req, res) {
 app.get("/getbook", function (req, res) {
     db.collection("book")
         .find({})
-        .toArray(function (err, data) { //if toarray() shows Promise Object
+        .toArray(function (err, data) {
             res.render("listbook", {
                 bookdb: data
             });
@@ -59,39 +59,34 @@ app.get("/getbook", function (req, res) {
 
 
 app.get("/updatebook", function (req, res) {
-    res.sendFile(__dirname + "/views/updatedata.html");
+    res.sendFile(__dirname + "/views/updatebookdata.html");
 });
 
 app.post("/updatebookdata", function (req, res) {
-    let details = req.body;
-    if (details.title.length < 3 || details.author.length < 3 ||
-        details.topic.length < 3) {
+    if (req.body.title.length < 3 || req.body.author.length < 3 ||
+        req.body.topic.length < 3 || req.body.cost < 0) {
         console.log("Invalid");
         res.render("invaliddata");
     } else {
-        db.collection("book").updateMany({
-            title: details.oldtitle
-        }, {
-            $set: {// replaces the value of a field with the specified value
+        let details = req.body;
+        let filter = {
+            name: details.oldtitle
+        };
+        let theUpdate = {
+            $set: {
                 title: details.title,
                 author: details.author,
                 topic: details.topic,
                 date: details.date,
                 summary: details.summary,
-            }
-        });
-        res.redirect("/getbook");
+            },
+        };
+        db.collection("book").updateOne(filter, theUpdate);
+        res.redirect("/getusers"); // redirect the client to list users page
     }
 });
 
-app.get('/getbetweendate',function(req,res){
-    db.collection("book").find({date:{$gte:"2020-08-27",$lt:"2021-08-27"}})
-    .toArray(function (err, data) {
-        res.render("listbook", {
-            bookdb: data
-        });
-    });
-});
+
 app.get("/deletebook", function (req, res) {
     res.sendFile(__dirname + "/views/deletebook.html");
 });

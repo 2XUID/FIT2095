@@ -49,6 +49,12 @@ export class AppComponent {
   ngOnInit() {
     this.listenToEvents();
   }
+  delete(){
+    let ticketInfo={
+      select:this.select
+    };
+    this.socket.emit("delete",ticketInfo);
+  }
   listenToEvents() {
     this.socket.on("teams", (data: any) => {
       this.Object = data;

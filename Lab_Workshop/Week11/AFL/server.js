@@ -23,4 +23,14 @@ io.on("connection", socket => {
     io.sockets.emit("teams", teamsObj);
     io.sockets.emit("total", total);
   });
+  socket.on("delete", data=>{
+    for (let i=0; i<teamsObj.teams.length;i++){
+      if (data.select===teamsObj.teams[i].value){
+          total-=teamsObj.teams[i].count;
+          teamsObj.teams[i].count=0;
+      }
+    }
+    io.sockets.emit("teams", teamsObj);
+    io.sockets.emit("total", total);;
+  });
 });

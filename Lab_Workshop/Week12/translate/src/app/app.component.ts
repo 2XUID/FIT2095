@@ -15,7 +15,8 @@ export class AppComponent {
   userName: string = '';
   texts: any[] = [];
   msgText: string = '';
-  lang: string = '';
+  lang1: string = '';
+  lang2: string = '';
   constructor() {
     this.socket = io();
   }
@@ -26,11 +27,16 @@ export class AppComponent {
     });
   }
   sendText() {
-    let data = {
+    let data1 = {
       user: this.userName,
       text: this.msgText,
-      lang: this.lang
+      lang: this.lang1
     }
-    this.socket.emit("newText", data);
+    let data2 = {
+      user: this.userName,
+      text: this.msgText,
+      lang: this.lang2
+    }
+    this.socket.emit("newText", data1, data2);
   }
 }

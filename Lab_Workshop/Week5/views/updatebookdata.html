@@ -1,0 +1,31 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        body {
+            background-image: url('img/back.png');
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Update User</h1></br>
+    <h1>
+        <a href="/">Insert Books</a>
+        <a href="/getbook">List Books</a>
+        <a href="/updatebook">Update Books</a>
+        <a href="/deletebook">Delete Books</a>
+    </h1>
+    <form action="/updateuserdata" method="POST">
+        Old title <input type="text" name="oldtitle" /> </br>
+        New Title <input type="text" name="title" /> </br>
+        New Author <input type="text" name="author" /> </br>
+        New Topic <input type="text" name="topic" /> </br>
+        New Date of publication <input type="text" name="date" /> </br>
+        New Summary <input type="text" name="summary" /> </br>
+        <input type="submit" value="Submit" /> </br>
+    </form></br>
+</body>
+
+</html>

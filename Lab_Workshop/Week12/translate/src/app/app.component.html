@@ -8,9 +8,18 @@
       <label for="msgText">Message:</label>
       <input type="text" class="form-control" id="msgText" placeholder="Your message" [(ngModel)]="msgText">
     </div>
-    Choose your target language:
-    <select class="form-select" [(ngModel)]="lang">
-      <option value="zh">Chinese (Simplified)</option>
+    Choose your primary language:
+    <select class="form-select" [(ngModel)]="lang1">
+      <option value="zh">Chinese</option>
+      <option value="fr">French</option>
+      <option value="de">German</option>
+      <option value="it">Italian</option>
+      <option value="ja">Japanese</option>
+      <option value="ko">Korean</option>
+    </select> <br>
+    Choose your Secondary language:
+    <select class="form-select" [(ngModel)]="lang2">
+      <option value="zh">Chinese</option>
       <option value="fr">French</option>
       <option value="de">German</option>
       <option value="it">Italian</option>
@@ -25,9 +34,15 @@
       <h2>{{item.text}}</h2>
       <p>{{item.translation}}</p>
     </div>
-    <audio controls autoplay>
-      <source id="mp3_src" src=item.audioFile type="audio/mpeg">
+    <audio controls>
+      <source id="mp3_src" [src]="item.audioFile" type="audio/mpeg">
     </audio>
+    <script>
+      function myFunction() {
+        document.getElementById("mp3_src").src = "item.audioFile";
+        document.getElementById("mp3_src").load();
+      }
+    </script>
   </div>
 
 </div>
