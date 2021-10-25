@@ -23,7 +23,9 @@ AssignmentLab Week 10	10.00	0–10
 AssignmentLab Week 12	8.37	0–10	(T1=100% T2=67% T3=100% T4=100% ET=100% ) * Interview=90%
 
 AssignmentLab Week 11	9.00	0–10	(T1=100% T2=100% ET=100% ) * Interview=90%
+
 //////////////////////////////////////
+
 QuizWeek 2 Pre-reading Quiz	10.00	0–10	 
 
 QuizWeek 3 Pre-Reading Quiz	10.00	0–10	 
@@ -45,7 +47,9 @@ QuizWeek 10 Pre-Reading Quiz	10.00	0–10
 QuizWeek 11 Pre-reading Quiz	10.00	0–10	 
 
 QuizWeek 12 Pre Reading Quiz	10.00	0–10	 
+
 //////////////////////////////////////
+
 QuizWeek 2: Workshop Quiz	10.00	0–10	 
 
 QuizWeek 3: Workshop Quiz	9.29	0–10	 
