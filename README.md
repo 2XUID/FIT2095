@@ -3,8 +3,8 @@
 # FIT2095 HD Workshop Quiz
 # FIT2095 HD lab
 AssignmentLab Week 2	9.00	0–10	(T1=100% T2=100% T3=100% T4=100% ET=100% ) * Interview=90%
-AssignmentLab Week 3	10.00	0–10	
-(T1=100%  T2=100%  T3=100%  ET=100%  ) * Interview=100%
+
+AssignmentLab Week 3	10.00	0–10	(T1=100%  T2=100%  T3=100%  ET=100%  ) * Interview=100%
 
 AssignmentLab Week 4	10.00	0–10	 
 
