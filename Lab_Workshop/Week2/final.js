@@ -15,6 +15,8 @@ function getDaysDiff(d, m, y) {
     }
     return (returnValue);
 }
+
+
 http
     .createServer(function (req, res) {
         let reqUrl = req.url;

@@ -23,7 +23,6 @@ app.get('/actors/:id', actors.getOne);
 app.put('/actors/:id', actors.updateOne);
 app.delete('/actors/:id', actors.deleteOne);
 app.post('/actors/:id/movies', actors.addMovie);
-
 //new
 app.delete('/actors/fullDelete/:id', actors.deleteOneActorsWithMovies); //
 app.delete('/actors/:actorID/:movieID', actors.removeMoviesFromActors);//

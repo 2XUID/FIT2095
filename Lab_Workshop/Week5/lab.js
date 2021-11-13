@@ -57,7 +57,6 @@ app.get("/getbook", function (req, res) {
         });
 });
 
-
 app.get("/updatebook", function (req, res) {
     res.sendFile(__dirname + "/views/updatebookdata.html");
 });

@@ -49,5 +49,4 @@ app.get('*', function (req, res){
     res.sendFile(fileName);
 });
 
-
 app.listen(5050);
